@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../stylesheets/reset.css">
-<link rel="stylesheet" href="../stylesheets/style.css">
-
-  <head>
-    <title>37signals: Web-based collaboration</title> 
-    
-  </head>
+ <head>
+  <link rel="stylesheet" href="../stylesheets/reset.css">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  
+  <title>37signals: Web-based collaboration</title>    
+ </head>
   
   <body>
     <div class="nav">
@@ -18,43 +17,69 @@
         <li><a href="Story">Our story</a></li>
         <li><a href="twitter">Follow us on Twitter</a></li>
         <li><a href="system">System status</a></li>
-        <li><a class="si" href="signin">Sign in</a></li>
+        <li><a id="si" href="signin">Sign in</a></li>
       </ul>
     </div>
 
-      <section>
+    <section>
       <div id="logo"><img src="../images/37signals.png"></div>
 
-      <h1>Making collaboration productive and enjoyable for people every day.</h1>
+      <div id="head" class="show">
+        <h1>Making collaboration productive and enjoyable for people every day.</h1>
+        <h5>Frustration-free web-based apps for collaboration, sharing information, and making decisions.</h5>
+      <div>
+    </section>
 
-      <h5>Frustration-free web-based apps for collaboration, sharing information, and making decisions.</h5>
+    <section>
+      
+      <div id="head1" class="hide">
+        <h2><a href="basecamp">Basecamp</a> is the project management tool you wish you had on your last project.</h2>
+        <p>Are you still managing projects with email? Are you still using Excel for your to-do lists? It's time to upgrade to Basecamp. Manage projects and collaborate with your team and clients the modern way.</p>
+        <img src="../images/arrow-left.png">
+      </div>
 
-      <div class="container">
+      <div id="head2" class="hide">
+        <h2><a href="highrise">Highrise</a> remembers the important things about people you'd normally forget.</h2>
+        <p>Keep a permanent record of people you do business with. Know who you talked to, when you talked to them, what was said, and when to follow up next. Over 20,000,000 contacts are tracked using Highrise.</p>
+        <img src="../images/arrow-left.png">
+      </div>
+
+      <div id="head3" class="hide">
+        <h2>From near or far, <a href="campsite">Campsite</a> helps teams work together over the web in real-time.</h2>
+        <p>Share ideas, discussions, concepts, images, code samples, videos, mockups, and documents in a real-time private chat room. It's game changing. We couldn't run our own business without Campfire.</p>
+        <img src="../images/arrow-right.png">
+      </div>
+
+      <div id="1" class="container">
         <img src="../images/37basecamp.png">
         <a href="Basecamp>">Basecamp</a><sub>&#174;</sub>
         <h4 class="red">Manage Projects</h4>
         <p>Use by millions for project management.</p>
       </div>
 
-       <div class="container">
+      <div id="2" class="container">
         <img src="../images/37highrise.png">
         <h3><a href="Basecamp>">Highrise</a><sub>&#174;</sub></h3>
         <h4 class="red">Manage Contracts</h4>
-        <p>Know the people you do business with.</p>
+        <p>Know the people you do business with.</p>   
       </div>
 
-       <div class="container">
-        <img src="../images/37campfire.png">
-        <a href="Basecamp>">Campfire</a><sub>&#174;</sub>
-        <h4 class="red">Work in Real-Time</h4>
-        <p>Group chat rooms for your business.</p>
-      </div>
+       <div id="3" class="container">
+          <img src="../images/37campfire.png">
+          <a href="Basecamp>">Campfire</a><sub>&#174;</sub>
+          <h4 class="red">Work in Real-Time</h4>
+          <p>Group chat rooms for your business.</p>    
+        </div>
+    </section>
 
-      </body>
+    <hr>
 
     <footer>
-      <img src="../images/star.png">
     </footer>
 
-  
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="application.js"></script>
+
+  </body>
 </html>
