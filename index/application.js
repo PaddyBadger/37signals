@@ -29,17 +29,18 @@ $(".button").click(function(){
     console.log("First Guess = " + guess);
                             
     switch(true){
-      case guess > 100 || guess <= 0 || isNaN(guess):
-              $("#nul").removeClass('hide');
-              $('#high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
+      case guess > 100 || guess <= 0 || isNaN(guess):  
+           //   $(".results div").not('#nul');
+              $(".results div").addClass('hide');
+              $("#nul").fadeIn('3000');
               break;
       case guess > randomnumber:
-              $("#high").removeClass('hide');
-              $('#nul, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');               
+              $(".results div").addClass('hide');
+              $("#high").fadeIn('3000');
               break;
       case guess < randomnumber:
-              $("#low").removeClass('hide');
-              $('#nul, #high, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
+              $(".results div").addClass('hide');
+              $("#low").fadeIn('hide');
               break;
       case guess === randomnumber:
               $("#win").removeClass('hide');
@@ -67,55 +68,54 @@ $(".button").click(function(){
 
       switch(true){
         case guess > 100 || guess <= 0 || isNaN(guess):
-                $("#nul").removeClass("hide");
-                $('#high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
+                $(".results div").addClass('hide');
+                $("#nul").fadeIn('3000');
                 break;
         case guess === randomnumber:
-                $("#win").append("<p id='right'>You Got It in " + guesses + " guesses! Click New Game to Play Again!</p>");
-                $("#win").removeClass("hide");
                 $(".guess").attr("disabled",true);
                 $(this).attr("disabled",true);
-                $('#nul, #high, #low, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
+                $(".results div").addClass('hide');
+                $("#win").append("<p id='right'>You Got It in " + guesses + " guesses! Click New Game to Play Again!</p>").removeClass("hide");
                 break;
         case new_distance > prev_distance && new_distance > 60: //if you're reallyCold
+                $(".results div").addClass('hide');
                 $("#reallyCold").removeClass("hide");
-                $('#nul, #high, #low, #win, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
                 break;
         case new_distance > prev_distance && new_distance > 40 && new_distance < 60: //if you're prettyCold
+                $(".results div").addClass('hide');
                 $("#prettyCold").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
                 break;
         case new_distance > prev_distance && new_distance > 20 && new_distance < 40: //if you're Cold
+                $(".results div").addClass('hide');
                 $("#cold").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
                 break;
         case new_distance > prev_distance && new_distance > 5 && new_distance < 20: //if you're kindaCold
+                $(".results div").addClass('hide');
                 $("#kindaCold").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #cold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
                 break;
         case new_distance > prev_distance && new_distance > 0 && new_distance < 5: //if you're closeColder
+                $(".results div").addClass('hide');
                 $("#closeColder").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
                 break;
         case new_distance < prev_distance && new_distance > 60: //if you're hotter but still really hotterCold
+                $(".results div").addClass('hide');
                 $("#hotterCold").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
                 break;
         case new_distance < prev_distance && new_distance > 40 && new_distance < 60: //if you're Hotter 
+                $(".results div").addClass('hide');
                 $("#hotter").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotterStill, #hot, #reallyHot').addClass('hide');
                 break;
         case new_distance < prev_distance && new_distance > 20 && new_distance < 40: //if you're hotterStill 
+                $(".results div").addClass('hide');
                 $("#hotterStill").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hot, #reallyHot').addClass('hide');
                 break;
         case new_distance < prev_distance && new_distance > 5 && new_distance < 20: //if you're Hot
+                $(".results div").addClass('hide');
                 $("#hot").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #reallyHot').addClass('hide');
                 break;
         case new_distance < prev_distance && new_distance > 0 && new_distance < 5: //if you're reallyHot
+                $(".results div").addClass('hide');
                 $("#reallyHot").removeClass("hide");
-                $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot').addClass('hide');
                 break;
            
         }
@@ -129,7 +129,7 @@ function newGame(){
         $(".newGame").click(function(){
             $(".guess").attr("disabled",false).val("");
             $(".button").attr("disabled",false);
-            $('#nul, #high, #low, #win, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
+            $(".results div").addClass('hide');
                 randomnumber = Math.ceil(Math.random()*100);
                 console.log(randomnumber);
                 guesses = 0;
