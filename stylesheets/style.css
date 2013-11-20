@@ -1,130 +1,39 @@
 body {
   width:700px;
   margin:auto;
-  font-family:'Bigelow Rules', cursive;
-  background:linear-gradient(to right, #FF3333, #5C85FF); 
+  margin-top: 150px;
   }
-
-.guess {
-  width:120px;
-  height:100px;
+.digits {
+  height: 150px;
 }
-
-label {
-  text-transform: uppercase;
-  font-size:100px;
-  font-weight: bold;
-}
-
-input {
-  font-size:100px;
-  font-weight: bold;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  font-family:'Bigelow Rules', cursive;
-  text-align: center;
-}
-
-.input {
-  width:700px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-
-button {
-  font-family:'Bigelow Rules', cursive;
-  padding: 11px 19px;
-  font-size: 50px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  display: block !important;
-  text-align: center !important;
-  background: black; 
-  border-color: #2980B9 !important;
-  color: white;
-  width: 150px;
-  height: 80px;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin:auto;
-  margin-top: 10px;
-  margin-right: 20px;
-}
-
-.button {
-  float:left;
-   margin-left:150px;
-  }
-
-.newGame {
-  float:left;
- 
-}
-
 .hide {
   display: none;
 }
-
-.results {
-  width:650;
-  text-align: center;
-  font-size: 80px;
+#canvas1 {
+  z-index: 1;
+  position:absolute;
+  left:0px;
+  top:0px;
 }
 
-#nul {
-
-}
-  
-#high {
-
-}
-
-#low {
-
+#canvas2 {
+  z-index: 2;
+  position:absolute;
+  left:0px;
+  top:0px;
 }
 
-#reallyCold {
-
+#canvas3 {
+  z-index: 3;
+  position:absolute;
+  left:0px;
+  top:0px;
 }
 
-#prettyCold {
-
+#canvas4 {
+  z-index: 4;
+  position:absolute;
+  left:0px;
+  top:0px;
 }
 
-#cold {
-
-}
-
-#kindaCold {
-
-}
-
-#closeColder {
-
-}
-
-#hotterCold {
-
-}
-
-#hotter {
-
-}
-
-#hotterStill {
-
-}
-        
-#hot {
-
-}
-         
-#reallyHot {
-
-}
-    
-#win {
-
-}

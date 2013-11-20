@@ -1,63 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../stylesheets/reset.css">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../stylesheets/reset.css">
   <link rel="stylesheet" href="../stylesheets/style.css">
-  <link href='http://fonts.googleapis.com/css?family=Bigelow+Rules' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" href="../images/chilli.png"/>
-  <title>Hot or Cold?</title>    
- </head>
-  <body>
-    <img src="../images/hotOrCold.png">
-    <div class="input">
-      <label>Enter your guess ></label>
-      <input type="text" class="guess"></input>
-    </div>
-      
-  <button class="button">Submit</button>
-  <button class="newGame">New Game</button>
+  <link rel="shortcut icon" href="../images/point.png"/>
+  <title>Bouncy Bitcoin</title>    
+</head>
+<body>
+  <span class="digits hide">
+    <img id="zero" src="../images/zero.png">
+    <img id="one" src="../images/one.png">
+    <img id="two" src="../images/two.png">
+    <img id="three" src="../images/three.png">
+    <img id="four" src="../images/four.png">
+    <img id="five" src="../images/five.png">
+    <img id="six" src="../images/six.png">
+    <img id="seven" src="../images/seven.png">
+    <img id="eight" src="../images/eight.png">
+    <img id="nine" src="../images/nine.png">
+    <img id="decimal" src="../images/point.png">   
 
-  <div class="results">
+  </span>
 
-    <div id="nul" class="hide">Invalid Number</div>
+  <canvas id="canvas1" width="1000" height="1000"></canvas>
+  <canvas id="canvas2" width="1000" height="1000"></canvas>
+  <canvas id="canvas3" width="1000" height="1000"></canvas>
+  <canvas id="canvas4" width="1000" height="1000"></canvas>
+
   
-    <div id="high" class="hide">Too High</div>
+  
 
-    <div id="low" class="hide">Too Low</div>
+<footer>
+</footer>
 
-    <div id="reallyCold" class="hide">Brrrrrr, super cold</div>
-
-    <div id="prettyCold" class="hide">Mmm, Pretty cold</div>
-
-    <div id="cold" class="hide">Colder</div>
-
-    <div id="kindaCold" class="hide">Kinda Cold</div>
-
-    <div id="closeColder" class="hide">Close, but colder</div>
-
-    <div id="hotterCold" class="hide">Closer, but still really cold</div>
-
-    <div id="hotter" class="hide">Getting warmer</div>
-
-    <div id="hotterStill" class="hide">Hotter...</div>
-        
-    <div id="hot" class="hide">Oooh, hotting up</div>
-         
-    <div id="reallyHot" class="hide">Really, very hot</div>
-
-    <div id="win" class="hide">Whooooo!</div>
-  </div>
-
-    <footer>
-
-    </footer>
-
-
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
   
   <script type="text/javascript" src="application.js"></script>
+ 
 
   </body>
 </html>
+
+

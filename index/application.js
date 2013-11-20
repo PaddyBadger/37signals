@@ -1,140 +1,95 @@
-  $(document).ready(function() {  
-    var randomnumber = Math.floor(Math.random()*100);
-    console.log(randomnumber);
-   
-var guesses = 0;
-var guess;
+function canvas() {
+    //define the animation refresh (frame rendering) with built-in browser timing
 
-clear_inputBox();
-Game();
-newGame();
+  window.requestAnimationFrame=function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.msRequestAnimationFrame||window.oRequestAnimationFrame||function(f){window.setTimeout(f,40/60);
+};};}
 
-function clear_inputBox(){                
-        
-$(".guess").on("focus",function(){
+var canvas1;
+var canvas2;
+var canvas3;
+var canvas4;
+var ctx1;
+var ctx2;
+var ctx3;
+var ctx4;
+var btc1 = new Image();
+var btc2 = new Image();
+var btc3 = new Image();
+var btc4 = new Image();
 
-  $("#dist p").css("display","none");
-  $(this).val("");
-});
+function init() {
+canvas1 = document.getElementById("canvas1");
+ctx1 = canvas1.getContext("2d");
+// btc2.src ="..images/4.png";
+canvas2 = document.getElementById("canvas2");
+ctx2 = canvas2.getContext("2d");
+// btc3.src ="..images/7.png";
+canvas3 = document.getElementById("canvas3");
+ctx3 = canvas3.getContext("2d");
+// btc4.src ="..images/9.png";
+canvas4 = document.getElementById("canvas4");
+ctx4 = canvas4.getContext("2d");
+setInterval(drawAll, 20);
+}
+
+function drawAll() {
+draw1();
+// draw2();
+// draw3();
+// draw4();
+}
+
+function draw1() {
+        btc1.src = '../images/1.png'; 
+        var particle_count = 30; 
+        var particles = [];
+        var particle;
+        //define properties of a bouncing object, such as where it start, how fast it goes
+            var W =canvas1.width = window.innerWidth;
+            var H =canvas1.height = window.innerHeight;
+            this.radius = 5;
+            this.x = 0;
+            this.y = 200;
+
+        function Particle() {
+            if (this.x > W/2 ){
+                this.vx = Math.random() * (-15 - -5) + -5;
+            }else{
+                this.vx = Math.random() * (15 - 5) + 5;
+            }
+            this.vy = Math.random() * (-20 - -18) + -18;
+            //we will call this function to actually draw the bouncing object at EVERY FRAME
+            this.draw = function() {
+            ctx1.drawImage(btc1,this.x,this.y);// Bouncing = this.x this.y  
+            };
+        };
+
+        function renderFrame() {
+            //RENDER THE PARTICLEEEEEEES!
+            requestAnimationFrame(renderFrame);
+            // Clearing screen to prevent trails
+            var W =canvas1.width = window.innerWidth;
+            var H =canvas1.height = window.innerHeight;
+            ctx1.clearRect(0, 0, W, H);
+            particles.forEach(function(particle) {
+                particle.vy += 1;
+                // Adding velocity to x and y axis
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                //bounce on the bottom of canvas
+                if (particle.y > 400) {
+                  particle.vy -= 13;
+                }
+                particle.draw();
+            });
+        };   
+       //create the particles and start to render them
+        for (var i = 0; i < particle_count; i++) {
+        particle = new Particle();
+        console.log(i);
+        particles.push(particle);
+        }
+        //BOUNCE MOFOS!
+        renderFrame();            
 };
-        
-function Game(){
-$(".button").click(function(){
-
-  if(guesses == 0){
-          
-    guesses++;
-
-    guess = +$(".guess").val();        
-    console.log("First Guess = " + guess);
-                            
-    switch(true){
-      case guess > 100 || guess <= 0 || isNaN(guess):  
-           //   $(".results div").not('#nul');
-              $(".results div").addClass('hide');
-              $("#nul").fadeIn('3000');
-              break;
-      case guess > randomnumber:
-              $(".results div").addClass('hide');
-              $("#high").fadeIn('3000');
-              break;
-      case guess < randomnumber:
-              $(".results div").addClass('hide');
-              $("#low").fadeIn('hide');
-              break;
-      case guess === randomnumber:
-              $("#win").removeClass('hide');
-              $(this).append("<p id='right'>You Got It in " + guesses + " guess! Click New Game to Play Again!</p>");
-              $(".guess").attr("disabled",true);
-              $(this).attr("disabled",true);
-              $('#nul, #high, #low, #reallyCold, #prettyCold, #cold, #kindaCold, #closeColder, #hotterCold, #hotter, #hotterStill, #hot, #reallyHot').addClass('hide');
-              break;
-      }        
-  }
-    else {                        
-      var prev_guess = guess;
-      console.log("PrevG = " + prev_guess);
-      
-      var prev_distance = Math.abs(prev_guess - randomnumber);
-      console.log("PrevD = " + prev_distance);
-
-      guess = +$(".guess").val();
-      console.log("NewG = " + guess);
-      
-      var new_distance = Math.abs(guess - randomnumber);
-      console.log("NewD = " + new_distance);                        
-
-      guesses++;
-
-      switch(true){
-        case guess > 100 || guess <= 0 || isNaN(guess):
-                $(".results div").addClass('hide');
-                $("#nul").fadeIn('3000');
-                break;
-        case guess === randomnumber:
-                $(".guess").attr("disabled",true);
-                $(this).attr("disabled",true);
-                $(".results div").addClass('hide');
-                $("#win").append("<p id='right'>You Got It in " + guesses + " guesses! Click New Game to Play Again!</p>").removeClass("hide");
-                break;
-        case new_distance > prev_distance && new_distance > 60: //if you're reallyCold
-                $(".results div").addClass('hide');
-                $("#reallyCold").removeClass("hide");
-                break;
-        case new_distance > prev_distance && new_distance > 40 && new_distance < 60: //if you're prettyCold
-                $(".results div").addClass('hide');
-                $("#prettyCold").removeClass("hide");
-                break;
-        case new_distance > prev_distance && new_distance > 20 && new_distance < 40: //if you're Cold
-                $(".results div").addClass('hide');
-                $("#cold").removeClass("hide");
-                break;
-        case new_distance > prev_distance && new_distance > 5 && new_distance < 20: //if you're kindaCold
-                $(".results div").addClass('hide');
-                $("#kindaCold").removeClass("hide");
-                break;
-        case new_distance > prev_distance && new_distance > 0 && new_distance < 5: //if you're closeColder
-                $(".results div").addClass('hide');
-                $("#closeColder").removeClass("hide");
-                break;
-        case new_distance < prev_distance && new_distance > 60: //if you're hotter but still really hotterCold
-                $(".results div").addClass('hide');
-                $("#hotterCold").removeClass("hide");
-                break;
-        case new_distance < prev_distance && new_distance > 40 && new_distance < 60: //if you're Hotter 
-                $(".results div").addClass('hide');
-                $("#hotter").removeClass("hide");
-                break;
-        case new_distance < prev_distance && new_distance > 20 && new_distance < 40: //if you're hotterStill 
-                $(".results div").addClass('hide');
-                $("#hotterStill").removeClass("hide");
-                break;
-        case new_distance < prev_distance && new_distance > 5 && new_distance < 20: //if you're Hot
-                $(".results div").addClass('hide');
-                $("#hot").removeClass("hide");
-                break;
-        case new_distance < prev_distance && new_distance > 0 && new_distance < 5: //if you're reallyHot
-                $(".results div").addClass('hide');
-                $("#reallyHot").removeClass("hide");
-                break;
-           
-        }
-      }
-    });
-  }        
-
-//Click on New Game to play again
-function newGame(){
-
-        $(".newGame").click(function(){
-            $(".guess").attr("disabled",false).val("");
-            $(".button").attr("disabled",false);
-            $(".results div").addClass('hide');
-                randomnumber = Math.ceil(Math.random()*100);
-                console.log(randomnumber);
-                guesses = 0;
-                });
-        }
-
-});
-
+init();
